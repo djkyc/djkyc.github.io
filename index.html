@@ -1,176 +1,306 @@
-<!DOCTYPE html>
-<html lang="zh">
+# Define the content for the HTML file based on the user's template and requests.
+# Target: User 'djkyc', Domain 'djcf.is-a.dev', Theme: Professional, Eye-care (Muted Slate & Peace Blue/Sage), Multi-lingual (CN/EN), Thanks to is-a.dev.
+
+html_content = """<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>爱护和平 | Cherish Peace</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>djkyc | Cherish Peace • 爱护和平</title>
+    <style>
+        /* 护眼且极具质感的高级配色方案 (Muted Slate, Sage Green & Peace Blue) */
+        :root {
+            --bg-color: #1a1f26;       /* 柔和深邃的夜空蓝黑，远比纯黑护眼 */
+            --card-bg: #222a36;        /* 略浅的卡片背景，增加视觉层级 */
+            --text-main: #e2e8f0;      /* 主文本：高透光率的浅灰白 */
+            --text-muted: #94a3b8;     /* 次要文本：沉稳的蓝灰 */
+            --accent-color: #7dd3fc;   /* 核心高亮：温润的和平鸽天蓝色 */
+            --accent-sage: #a7f3d0;    /* 辅助高亮：代表和平橄榄枝的柔和草绿 */
+            --border-color: #334155;   /* 优雅细腻的边框线 */
+            --divider-color: #475569;  /* 分割线颜色 */
+        }
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #e8f0fe 0%, #fdf6f0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      padding: 20px;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .card {
-      max-width: 800px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      border-radius: 32px;
-      padding: 48px 40px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 6px 12px rgba(0,0,0,0.04);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.7;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    .icon {
-      font-size: 64px;
-      margin-bottom: 16px;
-      animation: float 3s ease-in-out infinite;
-    }
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-    }
+        /* 头部区域 */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #2d3a4a;
-      margin-bottom: 12px;
-      letter-spacing: 2px;
-    }
+        .icon-container {
+            font-size: 56px;
+            margin-bottom: 12px;
+            animation: float 4s ease-in-out infinite;
+            display: inline-block;
+        }
 
-    .subhead {
-      font-size: 1.3rem;
-      color: #5f6b7a;
-      margin-bottom: 32px;
-      font-weight: 400;
-      border-bottom: 2px dashed #ccdbe9;
-      padding-bottom: 24px;
-      display: inline-block;
-    }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
 
-    .quote {
-      font-size: 1.25rem;
-      line-height: 1.9;
-      color: #3a4a5a;
-      margin-bottom: 32px;
-      text-align: left;
-      padding: 0 12px;
-    }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
 
-    .quote p {
-      margin-bottom: 20px;
-    }
+        .subtitle {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-    .zh {
-      font-weight: 500;
-      color: #1e2b37;
-    }
+        /* 核心格言段落 */
+        .quote-block {
+            margin-bottom: 30px;
+            padding-left: 16px;
+            border-left: 3px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+        
+        .quote-block:hover {
+            border-left-color: var(--accent-color);
+        }
 
-    .en {
-      font-style: italic;
-      color: #506273;
-      margin-top: 4px;
-    }
+        .zh {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
 
-    .divider {
-      width: 80px;
-      height: 4px;
-      background: #f0c174;
-      margin: 32px auto;
-      border-radius: 2px;
-    }
+        .en {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
 
-    .footer {
-      margin-top: 28px;
-      font-size: 0.95rem;
-      color: #7c8a99;
-    }
+        /* 分割线 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, var(--border-color), transparent);
+            margin: 30px 0;
+            border: none;
+        }
 
-    .footer a {
-      color: #4f6d8c;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px dotted #4f6d8c;
-    }
+        /* 标签与链接区 */
+        .meta-section {
+            margin-top: 40px;
+        }
 
-    .footer a:hover {
-      color: #1e3b5a;
-    }
+        .badge-container {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-    @media (max-width: 600px) {
-      .card {
-        padding: 36px 24px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .quote {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
+        .badge {
+            display: inline-block;
+            background: rgba(125, 211, 252, 0.06);
+            color: var(--accent-color);
+            border: 1px solid rgba(125, 211, 252, 0.15);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+        
+        .badge.sage {
+            background: rgba(167, 243, 208, 0.05);
+            color: var(--accent-sage);
+            border: 1px solid rgba(167, 243, 208, 0.15);
+        }
+
+        /* 卡片式链接 */
+        .link-grid {
+            display: block;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 14px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(125, 211, 252, 0.03);
+            border-color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+
+        .link-label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-label .title {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .link-label .url {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 2px;
+        }
+
+        .go-icon {
+            color: var(--accent-color);
+            font-weight: bold;
+            transition: transform 0.25s ease;
+        }
+
+        .link-item:hover .go-icon {
+            transform: translateX(5px);
+        }
+
+        /* 页脚与致谢 */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-color);
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #bae6fd;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 12px;
+            }
+            .container {
+                padding: 35px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .quote-block {
+                padding-left: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <main class="card">
-    <div class="icon">🕊️</div>
-    <h1>爱护和平</h1>
-    <div class="subhead">Cherish Peace • ちきゅうのへいわ</div>
-    
-    <div class="quote">
-      <p class="zh">
-        和平不是一句口号，而是每个人内心深处的选择。<br>
-        愿战火止息，愿分歧归于理解，愿世界充满爱。
-      </p>
-      <p class="en">
-        Peace is not just a slogan, but a choice we make deep inside.<br>
-        May the fighting cease, may differences turn into understanding, and may the world be filled with love.
-      </p>
+
+    <div class="container">
+        <header>
+            <div class="icon-container">🕊️</div>
+            <h1>爱护和平</h1>
+            <div class="subtitle">Cherish Peace • djkyc</div>
+        </header>
+
+        <div class="quote-block">
+            <p class="zh">和平不是一句口号，而是每个人内心深处的选择。<br>愿战火止息，愿分歧归于理解，愿世界充满爱。</p>
+            <p class="en">Peace is not just a slogan, but a choice we make deep inside.<br>May the fighting cease, may differences turn into understanding, and may the world be filled with love.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quote-block">
+            <p class="zh">一片橄榄叶，一份希望。让我们从自身做起，<br>用善意化解冲突，用合作替代对抗。</p>
+            <p class="en">An olive branch carries hope. Let us start from ourselves,<br>resolving conflicts with kindness and replacing confrontation with cooperation.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quote-block">
+            <p class="zh">科技应以人为本，和平亦需智慧守护。<br>我是一名开发者，愿用代码编织连接，而不是隔阂。</p>
+            <p class="en">Technology should serve humanity, and peace needs wisdom to sustain.<br>As a developer, I build connections with code, not divisions.</p>
+        </div>
+
+        <div class="meta-section">
+            <div class="badge-container">
+                <span class="badge">Non-commercial Use / 非商业用途</span>
+                <span class="badge sage">🌍 Guarding Our Shared Home</span>
+            </div>
+
+            <div class="link-grid">
+                <a href="https://github.com/djkyc" target="_blank" class="link-item">
+                    <div class="link-label">
+                        <span class="title">GitHub Profile</span>
+                        <span class="url">github.com/djkyc</span>
+                    </div>
+                    <span class="go-icon">→</span>
+                </a>
+
+                <a href="https://djcf.is-a.dev" target="_blank" class="link-item" onclick="return false;" style="cursor: default;">
+                    <div class="link-label">
+                        <span class="title">Personal Domain <small style="color: var(--accent-sage); font-style: normal; margin-left: 4px;">(Reviewing / 申请中)</small></span>
+                        <span class="url">djcf.is-a.dev</span>
+                    </div>
+                    <span class="go-icon" style="color: var(--text-muted); font-size: 0.9rem;">⏳</span>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 djkyc. Built with code, sustained with peace.</p>
+            <p>Special thanks to <a href="https://is-a.dev" target="_blank" rel="noopener noreferrer">is-a.dev</a> for providing free domain infrastructure to developers globally.</p>
+            <p>特别感谢 <a href="https://is-a.dev" target="_blank" rel="noopener noreferrer">is-a.dev</a> 为全球开发者提供免费、高质量的域名托管基础设施。</p>
+        </footer>
     </div>
 
-    <div class="divider"></div>
-
-    <div class="quote">
-      <p class="zh">
-        一片橄榄叶，一份希望。让我们从自身做起，<br>
-        用善意化解冲突，用合作替代对抗。
-      </p>
-      <p class="en">
-        An olive branch carries hope. Let us start from ourselves,<br>
-        resolving conflicts with kindness and replacing confrontation with cooperation.
-      </p>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="quote">
-      <p class="zh">
-        科技应以人为本，和平亦需智慧守护。<br>
-        我是一名开发者，愿用代码编织连接，而不是隔阂。
-      </p>
-      <p class="en">
-        Technology should serve humanity, and peace needs wisdom to sustain.<br>
-        As a developer, I build connections with code, not divisions.
-      </p>
-    </div>
-
-    <div class="footer">
-      🌍 守护我们共同的家园 · Guarding our shared home · 
-      <a href="https://github.com/djkyc" target="_blank">@djkyc</a>
-    </div>
-  </main>
 </body>
 </html>
+"""
+
+# Save the generated code into an HTML file
+file_name = "index.html"
+with open(file_name, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"File {file_name} generated successfully.")
